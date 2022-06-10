@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>World Step</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../css/bootstrap.css">
@@ -19,12 +20,105 @@
                 </div>
 
                 <div class="nav-bar-top-option">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars" onclick="toggleTabDetail()"></i>
                 </div>
             </div>
 
             <div class="app">
-                
+                <div class="setting">
+                    <div class="title">
+                        Setting
+                    </div>
+
+                    <div class="setting-content">
+                        <div class="setting-line">
+                            <div class="setting-line-name">
+                                Notifications
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-line">
+                            <div class="setting-line-name">
+                                Sound
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="primary-line"></div>
+                    </div>
+
+                    <div class="about">
+                        <div class="about-wrap">
+                            <!--  -->
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                            What is the Worldstep
+                                        </a>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </h4>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse in">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat.</div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                            Vision
+                                        </a>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </h4>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat.</div>
+                                    </div>
+                                </div>
+
+                                <a href="" class="setting-line-name">
+                                    Whitepaper
+                                </a>
+                            </div>
+
+                            <!-- SOCIALS -->
+                            <div class="socials">
+                                <div class="socials-item">
+                                    <img src="../img/tele.png" alt="">
+                                </div>
+                                <div class="socials-item">
+                                    <img src="../img/wt.png" alt="">
+                                </div>
+                                <div class="socials-item">
+                                    <img src="../img/dc.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="second-btn">
+                        Logout
+                    </div>
+                </div>
             </div>
 
             <div class="nav-bar-bottom">
@@ -44,7 +138,89 @@
                     <i class="fa-solid fa-box-archive"></i>
                 </div>
             </div>
+
+            <div class="user-detail"  onclick="toggleTabDetail()">
+                <div class="user-detail-content" onclick="stopPropagation(event)">
+
+                    <div class="user-detail-close-btn centering" onclick="toggleTabDetail()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+
+                    <div class="user-detail-info">
+                        <img src="../img/user/logo2.png" alt="" class="user-detail-avt">
+                        <div class="user-detail-name">
+                            Krad Nguyen
+                        </div>
+                    </div>
+
+                    <div class="user-detail-total-money">
+                        <div class="user-detail-total-money-icon centering">
+                            $
+                        </div>
+                        100000 WSP
+                    </div>
+
+                    <div class="user-detail-shoes">
+                        <div class="">
+                            <div class="user-detail-shoes-icon">
+                                <img src="../img/user/shoes.png" alt="">
+                            </div>
+                            Shoe
+                        </div>
+                        <div class="user-detail-shoes-quantity">
+                            2
+                        </div>
+                    </div>
+                    <div class="user-detail-shoe">
+                        <div class="user-detail-shoe-title">
+                            Common
+                        </div>
+                        <div class="user-detail-shoe-quantity">
+                            0
+                        </div>
+                    </div>
+                    
+                    <div class="user-detail-shoe">
+                        <div class="user-detail-shoe-title">
+                            Uncommon
+                        </div>
+                        <div class="user-detail-shoe-quantity">
+                            1
+                        </div>
+                    </div>
+
+                    <div class="user-detail-shoe">
+                        <div class="user-detail-shoe-title">
+                            Rare
+                        </div>
+                        <div class="user-detail-shoe-quantity">
+                            1
+                        </div>
+                    </div>
+
+                    <div class="user-detail-shoe">
+                        <div class="user-detail-shoe-title">
+                            Mysthical
+                        </div>
+                        <div class="user-detail-shoe-quantity">
+                            0
+                        </div>
+                    </div>
+
+                    <div class="user-detail-shoe">
+                        <div class="user-detail-shoe-title">
+                            Legendary
+                        </div>
+                        <div class="user-detail-shoe-quantity">
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </body>
 </html>
 <script src="../js/base.js"></script>
+<script src="../js/bootstrap.min.js"></script>

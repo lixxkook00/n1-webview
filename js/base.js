@@ -8,3 +8,11 @@ const toggleNav = (className) => {
     }
     $(`.${className}`).classList.add('active');
 };
+
+const toggleTabDetail = () => {
+    $('.user-detail').classList.toggle("active");
+}
+
+const stopPropagation = (e) => {
+    e.stopPropagation();
+}
