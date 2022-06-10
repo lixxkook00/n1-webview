@@ -1,0 +1,12 @@
+@keyframes border-nav {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #fff;
+    }
+    100% {
+        border-color: #fff;
+    }
+}
+
