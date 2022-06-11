@@ -24,6 +24,7 @@ input{
 html,body{
     box-sizing: border-box;
     color: #041047;
+    overflow: hidden;
 }
 
 /* ----------------------------------------------- */
@@ -55,6 +56,17 @@ html,body{
     font-size: 22px;
     border: 1px solid #FF5D55;
     color: #FF5D55;
+}
+
+.third-btn{
+    text-align: center;
+    padding: 10px 15px;
+    color: #000;
+    border-radius: 28px;
+    font-size: 22px;
+    border: 1px solid #FF5D55;
+    background-color: #fff;
+    font-weight: 500;
 }
 
 .title{
@@ -149,6 +161,7 @@ html,body{
 .app{
     height: 87vh;
     width: 100vw;
+    position: relative;
 }
 
 /* LOGIN SCREEN */
@@ -239,6 +252,7 @@ html,body{
     position: relative;
     padding-bottom: 100px;
     height: 100%;
+    
 }
 
 .user-info-avt{
@@ -272,6 +286,7 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .user-info-detail-num{
@@ -518,6 +533,7 @@ input:checked + .slider:before {
     backdrop-filter: blur(3px);
     transition: all 0.3s ease-in-out;
     transform: translateX(100%);
+    z-index: 2;
 }
 
 
@@ -668,7 +684,7 @@ input:checked + .slider:before {
     color: #fff;
 }
 
-.marketplace-content{
+.cart-content{
     flex: 1;
     padding-top: 20px;
     overflow-y: auto;
@@ -677,18 +693,19 @@ input:checked + .slider:before {
     scrollbar-width: none;  /* Firefox */
 }
 
-.marketplace-content::-webkit-scrollbar {
+.cart-content::-webkit-scrollbar {
   display: none;
 }
 
-.marketplace-content-wrap{
+.cart-content-wrap{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 2px;
 }
 
-.marketplace-content-cart{
+.cart{
+    position: relative;
     width: 47%;
     display: flex;
     flex-direction: column;
@@ -696,7 +713,20 @@ input:checked + .slider:before {
     border-radius: 20px;
     padding: 0 16px 16px;
     margin-bottom: 16px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.cart.new::before{
+    content:"NEW";
+    position: absolute;
+    top: 20%;
+    left: -1px;
+    font-size: 10px;
+    color: #fff;
+    padding: 2px 6px;
+    font-weight: 700;
+    transform: skew(-12deg) rotate(-12deg);
+    background-image: linear-gradient(90deg, #FF5954 10%, #FF9175 90%);
 }
 
 .cart-country{
@@ -774,4 +804,445 @@ input:checked + .slider:before {
     color: #fff;
     font-weight: 600;
     background-image: linear-gradient(0deg, #FF4A4C 10%, #FF8D74 90%);
+}
+
+/* MY SHOE */
+
+.my-shoe{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 10px;
+}
+
+.my-shoe-section{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    
+}
+
+.my-shoe-section-wrap{
+    display: flex;
+    background-color: #5B6EE1;
+    padding: 2px;
+    position: relative;
+    border-radius: 20px;
+}
+
+.my-shoe-section-item{
+    padding: 5px 30px;
+    text-align: center;
+    width: 50%;
+    z-index: 1;
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.my-shoe-section-item.active{
+    color: #000034;
+}
+
+.my-shoe-section-bg{
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    background-color: #fff;
+    transition: all 0.5s ease-in-out;
+    transform: translate(0,-50%);
+    height: 90%;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.my-shoe-detail-process{
+    position: relative;
+}
+
+.progress-part{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.progress-part div{
+    height: 100%;
+    width: 4px;
+    background-color: #fff;
+    position: relative;
+}
+
+/* .progress-part div::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    top: 0;
+    left: -1px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: #6379E4;
+}
+
+.progress-part div::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    right: -1px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: #6379E4;
+} */
+
+/* MY SHOE DETAIL */
+
+.my-shoe-detail{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95%;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+.my-shoe-detail::-webkit-scrollbar {
+  display: none;
+}
+
+.my-shoe-detail-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 20px;
+    margin: 30px 20px 0;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.my-shoe-detail-id{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transition: all 0.5s ease-in-out;
+    transform: translate(-50%,-50%);
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.my-shoe-detail-img{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.my-shoe-detail-name.Durability{
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
+.durability-process.progress{
+    height: 30px;
+    margin: 10px 0 15px;
+    border-radius: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000032 !important;
+}
+
+.my-shoe-detail-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-shoe-detail-btn{
+    width: 48%;
+    padding: 4px 15px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.my-shoe-detail-info{
+    margin: 10px 0;
+}
+
+.my-shoe-detail-line{
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.my-shoe-detail-name{
+    width: 40%;
+    font-size: 16px;
+    text-align: right;
+    padding-right: 8px;
+    font-weight: 600;
+}
+
+.my-shoe-detail-process{
+    flex: 1;
+}
+
+.my-shoe-detail-btn-fix{
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* FIX */
+.claim-award,
+.fix,
+.quick-run{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(3px);
+    transition: all 0.3s ease-in-out;
+    /* transform: translateX(100%); */
+    z-index: 2;
+    display: none;
+}
+.claim-award.active,
+.quick-run.active,
+.fix.active{
+    display: flex;
+}
+
+.quick-run-content,
+.fix-content{
+    background-color: #fff;
+    padding: 30px;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.fix-title{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.fix-img{
+    height: 150px;
+    margin: 20px 0;
+}
+
+.fix-durability{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.fix-cost{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    margin: 20px 0;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.fix-cost-value{
+    font-style: italic;
+}
+
+.fix-cost-btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.fix-cost-btn{
+    width: 48%;
+}
+
+input[type="range"] {
+	 outline: 0;
+	 border: 0;
+	 border-radius: 500px;
+	 width: 400px;
+	 max-width: 100%;
+	 margin: 24px 0 16px;
+	 transition: box-shadow 0.2s ease-in-out;
+}
+ @media screen and (-webkit-min-device-pixel-ratio: 0) {
+	 input[type="range"] {
+		 overflow: hidden;
+		 height: 30px;
+		 -webkit-appearance: none;
+		 background-color: #DDDFF9;
+	}
+	 input[type="range"]::-webkit-slider-runnable-track {
+		 height: 30px;
+		 -webkit-appearance: none;
+		 color: #444;
+		 transition: box-shadow 0.2s ease-in-out;
+	}
+	 input[type="range"]::-webkit-slider-thumb {
+		 width: 30px;
+		 -webkit-appearance: none;
+		 height: 30px;
+		 cursor: ew-resize;
+		 background: #fff;
+         border: 1px solid #000;
+		 box-shadow: -340px 0 0 320px #5E72E2, inset 10px 10px 10px 40px #fff;
+		 border-radius: 50%;
+		 transition: box-shadow 0.2s ease-in-out;
+		 position: relative;
+	}
+    /* input[type="range"]:active::-webkit-slider-thumb {
+        background: #fff;
+        box-shadow: -340px 0 0 320px red, inset 0 0 0 3px red;
+    } */
+}
+ input[type="range"]::-moz-range-progress {
+	 background-color: #43e5f7;
+}
+ input[type="range"]::-moz-range-track {
+	 background-color: #9a905d;
+}
+ input[type="range"]::-ms-fill-lower {
+	 background-color: #43e5f7;
+}
+ input[type="range"]::-ms-fill-upper {
+	 background-color: #9a905d;
+}
+
+/* RUNNING */
+.running{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.running-img{
+    height: 50%;
+}
+
+.running-infor{
+    flex: 1;
+}
+
+.running-infor-wrap{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.running-infor-left{
+    width: 60%;
+}
+
+.running-infor-left-title{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.running-infor-left-title img{
+    height: 30px;
+    margin-left: 8px;
+}
+
+.running-infor-totalstep{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.running-infor-right-item{
+    margin: 10px 0;
+}
+
+.running-infor-right-title{
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.running-infor-right-title img{
+    height: 16px;
+    margin-right: 4px;
+}
+
+.running-infor-right-value{
+    padding-left: 30px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* QUICK RUN */
+
+.quick-run-content{
+    background-color: #545DDE;
+}
+
+.quick-run-skip{
+    border-image-width: 80%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.quick-run-skip-title{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.quick-run-skip-value{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.quick-run-btns{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quick-run-btn{
+    width: 48%;
+    padding: 5px;
+}
+
+/* CLAIM */
+
+.claim-progress{
+    height: 30px;
+    margin: 20px 0;
+    border-radius: 16px;
+    font-size: 18px;
+}
+
+.claim-total{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 700;
 }
